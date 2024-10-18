@@ -63,7 +63,17 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
+
+/* 🌐 📦 🔌 🔋🔥 📆 🏠 💾 📶 📡 ❎ 📬 🧠 🌜 🎵 🔼 🔽 🎁 📢 🔇 🔈 🔉 🔊 
+ *  🌈 ☔ 🥶 🌞 ⛃ 🌡 🛠️ 📏 🤖 📝  📢 🎙️ 🌡️ 🌶️
+ **/
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	/* function 		format            argument */
+	{ run_command, 		"🏠 %s |",           "uname -r | awk -F '-' '{ print $1 }'" },
+	{ disk_free, 		"💽 %s |",           "/" },
+	{ cpu_perc, 		"🤖 %s%% |",         NULL},
+	{ ram_perc, 		"🧠 %s%% |",         NULL},
+	{ run_command, 		"🔊 %s |",           "amixer sget Master | grep 'Mono: Pl' | cut -d'[' -f2 | cut -d']' -f1"},
+	{ run_command, 		"🎙️ %s |",           "amixer sget Capture | grep 'Left:' | cut -d'[' -f2 | cut -d']' -f1"},
+	{ datetime, 		"📆 %s",             "%F %T" },
 };
